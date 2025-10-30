@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="VIBE: An open-source web platform to benchmark vision models for gesture-based interaction with immediate feedback on accuracy, latency, and resource usage.">
+  <meta name="keywords" content="VIBE, Benchmark, Gesture Interaction, Vision Models, HCI, Pose Estimation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VIBE: Benchmarking Vision Models for Gesture-Based Interaction</title>
+
+
+  <meta property="og:title" content="VIBE: Benchmarking Vision Models for Gesture-Based Interaction" />
+  <meta property="og:description"
+    content="VIBE is a web platform for rapid, reproducible benchmarking of vision models for gesture-based interaction with immediate metrics on accuracy, latency, and resource usage." />
+  <!-- Twitter automatically scrapes this. Go to https://cards-dev.twitter.com/validator?
+      if you update and want to force Twitter to re-scrape. -->
+  <meta property="twitter:card" content="summary" />
+  <meta property="twitter:title" content="VIBE: Benchmarking Vision Models for Gesture-Based Interaction" />
+  <meta property="twitter:description"
+    content="Open-source web platform to benchmark gesture-interaction vision models with immediate feedback on key metrics." />
+  <!-- <meta property="twitter:image"         content="https://3dmagicpony.github.io/resources/overview.jpg" /> -->
+
+  <!-- MathJax library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TSQGH8Q0WV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-TSQGH8Q0WV');
+  </script>
+  
+
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+</head>
+
+<body>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-4 publication-title" style="font-size: 2rem;">VIBE : Plateforme Open-source de Benchmark des Modèles de Vision pour l’Interaction Gestuelle</h1>
+            <h2 class="subtitle is-6" style="margin-top: 0.5rem;">VIBE: An Open-Source Platform for Benchmarking Vision Models for Gesture-Based Interaction</h2>
+            <div class="is-size-5 publication-authors" style="margin-top: 0.75rem;">
+              <span class="author-block">Rayan El Idrissi Dafali</span>
+              &nbsp;&nbsp;&nbsp;
+              <span class="author-block">Alina Glushkova</span>
+            </div>
+            <div class="is-size-6 publication-authors" style="margin-top: 0.25rem; margin-bottom: 10px;">
+              <span class="author-block">Mines Paris – PSL, Centre de Robotique, France</span>
+            </div>
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="#" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper (PDF)</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://github.com/rayan-elidrissi/vibe" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://rayan-elidrissi.github.io/vibe/" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-video"></i>
+                    </span>
+                    <span>Demo</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <style>
+    #teaser-video {
+      max-width: 85%;
+      margin: 0 auto;
+      display: block;
+      border: none;
+      border-radius: 4px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+  </style>
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <video id="teaser-video" autoplay muted loop playsinline height="100%">
+          <source src="./resources/demo_video.mp4" type="video/mp4">
+        </video>
+        <h2 class="subtitle" style="text-align: center;">Fig. 1 – Interface de VIBE : téléversement d’une vidéo et retour immédiat sur les performances des modèles.</h2>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 1rem;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-4" style="font-weight: 700;" id="abstract">Résumé</h2>
+          <div class="content has-text-justified">
+            <p>
+              Malgré les avancées récentes des modèles de vision, l’interaction gestuelle reste difficile à prototyper efficacement dans le domaine de l’Interaction Homme-Machine (IHM). Pour aider les chercheurs à sélectionner les modèles de vision adaptés à leur cas d’usage, nous présentons <b>VIBE</b> : une plateforme web permettant de comparer les performances de plusieurs modèles à partir de courtes vidéos. L’outil offre un retour immédiat sur les métriques clés telles que la précision, la latence et la consommation de ressources. VIBE facilite ainsi le prototypage rapide, reproductible, et comparatif, en abaissant les barrières techniques d’évaluation.
+            </p>
+          </div>
+          <h2 class="title is-4" style="font-weight: 700;">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Despite progress in vision models, gesture-based interaction remains difficult to prototype in Human-Computer Interaction (HCI). We present <b>VIBE</b>: a web platform that allows researchers to quickly benchmark multiple vision models from short video clips. The tool provides immediate feedback on key metrics such as accuracy, latency, and resource usage, enabling faster, more reproducible comparisons.
+            </p>
+          </div>
+
+          <div class="columns">
+            <div class="column">
+              <h3 class="title is-5" style="font-weight: 700;">CCS Concepts</h3>
+              <div class="content">
+                <ul>
+                  <li>Human-centered computing → Gestural input</li>
+                  <li>Computing methodologies → Computer vision</li>
+                  <li>Applied computing → Interactive learning environments</li>
+                </ul>
+              </div>
+            </div>
+            <div class="column">
+              <h3 class="title is-5" style="font-weight: 700;">Mots-clés / Keywords</h3>
+              <div class="content">
+                <p>Benchmark, Interaction Gestuelle, Modèles de Vision, Outils d’aide à la décision</p>
+                <p>Benchmark, Gesture Interaction, Vision Models, Decision Support Tools</p>
+              </div>
+            </div>
+          </div>
+
+          <h2 class="title is-4" style="font-weight: 700;" id="citation">Référence / Citation</h2>
+          <div class="content">
+            <p>
+              Rayan El Idrissi Dafali et Alina Glushkova. 2025. VIBE : Plateforme de Benchmark des Modèles de Vision pour l’Interaction Gestuelle. IHM ’25 : Actes étendus de la 36e conférence Francophone sur l’Interaction Humain-Machine, 25–28 novembre 2025, Toulouse, France.
+            </p>
+          </div>
+
+          <h2 class="title is-4" style="font-weight: 700;" id="contact">Auteurs • Contact</h2>
+          <div class="content">
+            <p>
+              Rayan El Idrissi Dafali, Mines Paris – PSL, Centre de Robotique, Paris, France, <a href="mailto:rayan.el_idrissi_dafali@minesparis.psl.eu">rayan.el_idrissi_dafali@minesparis.psl.eu</a><br>
+              Alina Glushkova, Mines Paris – PSL, Centre de Robotique, Paris, France, <a href="mailto:alina.glushkova@minesparis.psl.eu">alina.glushkova@minesparis.psl.eu</a>
+            </p>
+          </div>
+
+          <h2 class="title is-4" style="font-weight: 700;" id="introduction">1. Introduction</h2>
+          <div class="content has-text-justified">
+            <p>
+              Les interfaces gestuelles offrent un canal de communication naturel aligné avec les comportements humains fondamentaux, permettant aux systèmes de percevoir non seulement l’agencement spatial et temporel des mouvements, mais aussi les indices plus subtiles tels que l’attention de l’utilisateur [6, 7]. Cette évolution pousse l’IHM vers des systèmes plus sensibles, capables d’adapter leurs actions à la perception de leur environnement.
+            </p>
+            <p>
+              Alors que de nouveaux modèles de vision sont publiés quasi-quotidiennement permettant de détecter les mains des utilisateurs et de développer des interfaces interactives basées sur les gestes [1, 2, 9], comparer puis intégrer les modèles les plus adaptés reste complexe. Pourtant, cette convergence entre vision par ordinateur et IHM ouvre la voie à des modalités d’entrée plus naturelles, dépassant les interfaces traditionnelles comme la souris et le clavier [4, 8].
+            </p>
+            <p>
+              Bien que les modèles récents d’estimation de pose améliorent leur précision, leur complexité computationnelle et leur empreinte mémoire les rendent peu adaptés à une intégration fluide dans des systèmes interactifs en temps réel. Les applications dans les lieux publics (musées, écoles, etc.) illustrent le potentiel des gestes, mais aussi leurs limites : suivi instable, précision variable, coûts computationnels élevés, rendant l’inférence en temps réel difficile sur des dispositifs embarqués.
+            </p>
+            <p>
+              Pour combler ce manque, nous introduisons <b>VIBE</b>, une plateforme web unifiée pour évaluer l’estimation de pose de la main dans des contextes interactifs réalistes. VIBE permet de télécharger un court clip vidéo, de sélectionner un ou plusieurs modèles, et de recevoir immédiatement des métriques d’efficacité : précision, latence d’inférence et consommation de ressources sur un ensemble de modèles pré‑entraînés [3, 5].
+            </p>
+          </div>
+
+          <h2 class="title is-4" style="font-weight: 700;" id="system">2. Conception et Implémentation du Système</h2>
+          <div class="content has-text-justified">
+            <p>
+              VIBE est conçu comme un environnement modulaire et interactif de benchmarking pour évaluer des modèles de reconnaissance gestuelle dans des conditions réalistes d’IHM [3]. Le système permet une évaluation rapide sans code, tout en garantissant une instrumentation fine des performances à chaque image.
+            </p>
+            <p>
+              L’interface présente un design minimaliste de type glisser‑déposer pour télécharger une vidéo (jusqu’à 30 secondes). Après le téléchargement, l’utilisateur choisit les modèles puis les métriques d’intérêt pour en obtenir une synthèse sur un tableau de bord. Chaque modèle s’exécute dans un conteneur Docker isolé (CPU/GPU), garantissant reproductibilité et stabilité, avec planification automatique selon les ressources disponibles.
+            </p>
+            <p>
+              Pendant l’inférence, jusqu’à 20 métriques peuvent être étudiées : précision & qualité, performance & rapidité, consommation en ressources et robustesse. La latence est contextualisée par des profils pré‑calibrés (GPU mobile, processeurs intégrés, stations de travail) afin d’interpréter les résultats selon le scénario de déploiement.
+            </p>
+          </div>
+
+          <h2 class="title is-4" style="font-weight: 700;" id="architecture">Architecture</h2>
+          <div class="content has-text-centered">
+            <img src="./resources/architecture.png" alt="Architecture de VIBE" style="width: 90%; margin: 0 auto; display: block;">
+          </div>
+
+          <h3 class="title is-5" style="font-weight: 700;">Tableau 1 – Comparaison entre exécution locale et via VIBE</h3>
+          <div class="table-container">
+            <table class="table is-striped is-hoverable is-fullwidth">
+              <thead>
+                <tr>
+                  <th>Critère</th>
+                  <th>Exécution Locale (Workstation)</th>
+                  <th>Exécution via VIBE (Webapp)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Mise en Place et Accessibilité</td>
+                  <td>Installation complexe, configuration manuelle et compétences techniques</td>
+                  <td>Zéro configuration, accessible via navigateur web</td>
+                </tr>
+                <tr>
+                  <td>Reproductibilité et Maintenance</td>
+                  <td>Sensible aux mises à jour locales et variations d’environnement</td>
+                  <td>Conteneur Docker versionné, environnement figé et reproductible</td>
+                </tr>
+                <tr>
+                  <td>Performances et Ressources</td>
+                  <td>Contrôle direct des ressources locales (CPU/GPU) mais limite matérielle</td>
+                  <td>Allocation dynamique (CPU/GPU)</td>
+                </tr>
+                <tr>
+                  <td>Mise à Jour des Modèles</td>
+                  <td>Mise à jour manuelle et non automatisée</td>
+                  <td>Déploiement continu via pipelines CI/CD et versionnage</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 class="title is-4" style="font-weight: 700;" id="discussion">3. Discussion et Perspectives</h2>
+          <div class="content has-text-justified">
+            <p>
+              VIBE est un outil open‑source permettant de sélectionner les modèles les plus adaptés tout en réduisant drastiquement le temps nécessaire au prototypage. Il crée un pont entre des modèles de vision complexes, traditionnellement limités à une exécution hors ligne, et des systèmes interactifs déployés en contexte. La webapp permet en quelques minutes d’évaluer des modèles, de les comparer côte à côte, puis de générer un rapport pour l’aide à la décision.
+            </p>
+          </div>
+
+          <h2 class="title is-4" style="font-weight: 700;" id="acknowledgements">Remerciements</h2>
+          <div class="content has-text-justified">
+            <p>
+              Ce travail a été soutenu par le Gouvernement français dans le cadre du projet « Compétences et Métiers d’Avenir » intitulé « ReSource », au sein du programme France 2030, porté par la Caisse des Dépôts.
+            </p>
+          </div>
+
+          <h2 class="title is-4" style="font-weight: 700;" id="references">Références</h2>
+          <div class="content">
+            <ol>
+              <li>Bazarevsky, V. et al. 2020. BlazePose: On-device Real-time Body Pose Tracking. CVPRW.</li>
+              <li>Cao, Z. et al. 2017. Realtime Multi-Person 2D Pose Estimation using Part Affinity Fields. CVPR.</li>
+              <li>Jiang, T. et al. 2023. RTMPose: Real-Time Multi-Person Pose Estimation based on MMPose. arXiv:2303.07399.</li>
+              <li>Lin, F. et al. 2021. Two-Hand Global 3D Pose Estimation Using Monocular RGB. WACV.</li>
+              <li>Lu, P. et al. 2023. RTMO: Towards High-Performance One-Stage Real-Time Multi-Person Pose Estimation. arXiv:2312.07526.</li>
+              <li>Moon, G. et al. 2022. Accurate 3D Hand Pose Estimation for Whole-Body 3D Human Mesh Estimation. CVPRW.</li>
+              <li>Yang, Z. et al. 2023. Effective Whole-body Pose Estimation with Two-stages Distillation. arXiv:2307.15880.</li>
+              <li>Yu, C. et al. 2021. Lite-HRNet: A Lightweight High-Resolution Network. CVPR.</li>
+              <li>Zhang, F. et al. 2020. MediaPipe Hands: On-device Real-time Hand Tracking. CVPRW.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title is-4" style="font-weight: 700;">BibTeX</h2>
+      <pre><code>@inproceedings{elidrissidafali2025vibe,
+  title={VIBE: An Open-Source Platform for Benchmarking Vision Models for Gesture-Based Interaction},
+  author={El Idrissi Dafali, Rayan and Glushkova, Alina},
+  booktitle={IHM '25: Actes étendus de la 36e conférence Francophone sur l’Interaction Humain-Machine},
+  year={2025},
+  address={Toulouse, France}
+}</code></pre>
+    </div>
+  </section>
+
+  
+
+  <section class="section" id="Acknowledgements" style="padding-top: 0rem;">
+    <div class="container is-max-desktop content">
+      <h2 class="title is-4" style="font-weight: 700;">Mentions Légales</h2>
+      <p>Cette page est un site de démonstration de recherche. Contenu © 2025 R. El Idrissi Dafali, A. Glushkova.</p>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This webpage template is adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>, under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+</body>
+
+</html>
