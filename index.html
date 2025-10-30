@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>VIBE – Vision Benchmark for Gesture Interaction</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="VIBE is an open-source platform for benchmarking vision models used in gesture-based interaction.">
+<link rel="icon" href="assets/favicon.png">
+<style>
+  body {max-width:900px;margin:2rem auto;padding:0 1rem;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,sans-serif;line-height:1.6;}
+  h1,h2,h3 {line-height:1.3;}
+  header{text-align:center;margin-bottom:2rem;}
+  .btn{display:inline-block;padding:.5rem .9rem;margin:.2rem;border:1px solid #ddd;border-radius:6px;text-decoration:none;}
+  .grid{display:grid;gap:1rem;}
+  video,img{max-width:100%;border-radius:8px;}
+  footer{margin-top:3rem;font-size:0.9em;color:#666;text-align:center;}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>VIBE: Vision Benchmark for Gesture Interaction</h1>
+  <p><strong>Rayan El Idrissi Dafali</strong>, <strong>Alina Glushkova</strong><br>Mines Paris – PSL, Centre de Robotique</p>
+  <p>
+    <a class="btn" href="paper.pdf">📄 Paper</a>
+    <a class="btn" href="https://github.com/rayan-elidrissi/vibe">💻 Code</a>
+    <a class="btn" href="assets/vibe_demo.mp4">🎥 Video</a>
+    <a class="btn" href="https://forms.gle/<your-googleform-id>">🗳️ Give Feedback</a>
+  </p>
+</header>
+
+<section>
+  <h2>Abstract</h2>
+  <p><em>VIBE</em> is an open-source web platform designed to evaluate and compare vision models used for gesture-based interaction.
+  Users can upload short gesture videos, select multiple models, and instantly visualize their performance in terms of
+  accuracy, latency, and resource use. VIBE aims to make gesture prototyping faster, reproducible, and accessible to HCI researchers.</p>
+</section>
+
+<section>
+  <h2>Demo Video</h2>
+  <video controls src="assets/vibe_demo.mp4" poster="assets/teaser.png"></video>
+</section>
+
+<section>
+  <h2>Key Features</h2>
+  <ul>
+    <li>Upload a gesture video – no code required.</li>
+    <li>Compare multiple models (e.g., BlazePose, RTMPose, MediaPipe).</li>
+    <li>Instant visualization of key metrics: accuracy, latency, memory.</li>
+    <li>Qualitative comparison of inference results (side-by-side playback).</li>
+    <li>Docker-based benchmarking for full reproducibility.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>BibTeX</h2>
+  <pre>@inproceedings{elidrissi2025vibe,
+  title={VIBE: Plateforme Open-source de Benchmark des Modèles de Vision pour l’Interaction Gestuelle},
+  author={El Idrissi Dafali, Rayan and Glushkova, Alina},
+  booktitle={Actes Étendus de la Conférence IHM 2025},
+  year={2025},
+  organization={ACM}
+}</pre>
+</section>
+
+<footer>
+  <p>© 2025 Mines Paris – PSL. Supported by the ReSource program (France 2030).</p>
+</footer>
+
+</body>
+</html>
