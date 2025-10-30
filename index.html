@@ -53,8 +53,8 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-4 publication-title" style="font-size: 2rem;">VIBE : Plateforme Open-source de Benchmark des Modèles de Vision pour l’Interaction Gestuelle</h1>
-            <h2 class="subtitle is-6" style="margin-top: 0.5rem;">VIBE: An Open-Source Platform for Benchmarking Vision Models for Gesture-Based Interaction</h2>
+            <h1 class="title is-4 publication-title" style="font-size: 2rem;">VIBE: An Open-Source Platform for Benchmarking Vision Models for Gesture-Based Interaction</h1>
+            <h2 class="subtitle is-6" style="margin-top: 0.5rem;">A research demo for rapid, reproducible, and comparable evaluations</h2>
             <div class="is-size-5 publication-authors" style="margin-top: 0.75rem;">
               <span class="author-block">Rayan El Idrissi Dafali</span>
               &nbsp;&nbsp;&nbsp;
@@ -114,7 +114,7 @@
         <video id="teaser-video" autoplay muted loop playsinline height="100%">
           <source src="./resources/demo_video.mp4" type="video/mp4">
         </video>
-        <h2 class="subtitle" style="text-align: center;">Fig. 1 – Interface de VIBE : téléversement d’une vidéo et retour immédiat sur les performances des modèles.</h2>
+        <h2 class="subtitle" style="text-align: center;">Figure 1 – VIBE interface: upload a short video and get immediate model metrics.</h2>
       </div>
     </div>
   </section>
@@ -123,16 +123,10 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column is-full-width">
-          <h2 class="title is-4" style="font-weight: 700;" id="abstract">Résumé</h2>
+          <h2 class="title is-4" style="font-weight: 700;" id="abstract">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Malgré les avancées récentes des modèles de vision, l’interaction gestuelle reste difficile à prototyper efficacement dans le domaine de l’Interaction Homme-Machine (IHM). Pour aider les chercheurs à sélectionner les modèles de vision adaptés à leur cas d’usage, nous présentons <b>VIBE</b> : une plateforme web permettant de comparer les performances de plusieurs modèles à partir de courtes vidéos. L’outil offre un retour immédiat sur les métriques clés telles que la précision, la latence et la consommation de ressources. VIBE facilite ainsi le prototypage rapide, reproductible, et comparatif, en abaissant les barrières techniques d’évaluation.
-            </p>
-          </div>
-          <h2 class="title is-4" style="font-weight: 700;">Abstract</h2>
-          <div class="content has-text-justified">
-            <p>
-              Despite progress in vision models, gesture-based interaction remains difficult to prototype in Human-Computer Interaction (HCI). We present <b>VIBE</b>: a web platform that allows researchers to quickly benchmark multiple vision models from short video clips. The tool provides immediate feedback on key metrics such as accuracy, latency, and resource usage, enabling faster, more reproducible comparisons.
+              Despite rapid progress in vision models, gesture-based interaction remains hard to prototype in Human–Computer Interaction (HCI). We present <b>VIBE</b>, a web platform for benchmarking multiple vision models from short video clips with immediate feedback on accuracy, latency, and resource usage. VIBE lowers evaluation friction and enables fast, reproducible, and comparable model selection for interactive systems.
             </p>
           </div>
 
@@ -148,22 +142,21 @@
               </div>
             </div>
             <div class="column">
-              <h3 class="title is-5" style="font-weight: 700;">Mots-clés / Keywords</h3>
+              <h3 class="title is-5" style="font-weight: 700;">Keywords</h3>
               <div class="content">
-                <p>Benchmark, Interaction Gestuelle, Modèles de Vision, Outils d’aide à la décision</p>
                 <p>Benchmark, Gesture Interaction, Vision Models, Decision Support Tools</p>
               </div>
             </div>
           </div>
 
-          <h2 class="title is-4" style="font-weight: 700;" id="citation">Référence / Citation</h2>
+          <h2 class="title is-4" style="font-weight: 700;" id="citation">Citation</h2>
           <div class="content">
             <p>
-              Rayan El Idrissi Dafali et Alina Glushkova. 2025. VIBE : Plateforme de Benchmark des Modèles de Vision pour l’Interaction Gestuelle. IHM ’25 : Actes étendus de la 36e conférence Francophone sur l’Interaction Humain-Machine, 25–28 novembre 2025, Toulouse, France.
+              Rayan El Idrissi Dafali and Alina Glushkova. 2025. VIBE: An Open-Source Platform for Benchmarking Vision Models for Gesture-Based Interaction. In IHM ’25 Extended Abstracts of the 36th Francophone Conference on Human–Computer Interaction, November 25–28, 2025, Toulouse, France.
             </p>
           </div>
 
-          <h2 class="title is-4" style="font-weight: 700;" id="contact">Auteurs • Contact</h2>
+          <h2 class="title is-4" style="font-weight: 700;" id="contact">Authors • Contact</h2>
           <div class="content">
             <p>
               Rayan El Idrissi Dafali, Mines Paris – PSL, Centre de Robotique, Paris, France, <a href="mailto:rayan.el_idrissi_dafali@minesparis.psl.eu">rayan.el_idrissi_dafali@minesparis.psl.eu</a><br>
@@ -174,87 +167,81 @@
           <h2 class="title is-4" style="font-weight: 700;" id="introduction">1. Introduction</h2>
           <div class="content has-text-justified">
             <p>
-              Les interfaces gestuelles offrent un canal de communication naturel aligné avec les comportements humains fondamentaux, permettant aux systèmes de percevoir non seulement l’agencement spatial et temporel des mouvements, mais aussi les indices plus subtiles tels que l’attention de l’utilisateur [6, 7]. Cette évolution pousse l’IHM vers des systèmes plus sensibles, capables d’adapter leurs actions à la perception de leur environnement.
+              Gesture input offers a natural interaction channel but remains challenging to engineer: models can be accurate yet hard to integrate with real-time constraints and heterogeneous hardware. Comparing accuracy, latency, and resource usage across models is often tedious and unreproducible.
             </p>
             <p>
-              Alors que de nouveaux modèles de vision sont publiés quasi-quotidiennement permettant de détecter les mains des utilisateurs et de développer des interfaces interactives basées sur les gestes [1, 2, 9], comparer puis intégrer les modèles les plus adaptés reste complexe. Pourtant, cette convergence entre vision par ordinateur et IHM ouvre la voie à des modalités d’entrée plus naturelles, dépassant les interfaces traditionnelles comme la souris et le clavier [4, 8].
-            </p>
-            <p>
-              Bien que les modèles récents d’estimation de pose améliorent leur précision, leur complexité computationnelle et leur empreinte mémoire les rendent peu adaptés à une intégration fluide dans des systèmes interactifs en temps réel. Les applications dans les lieux publics (musées, écoles, etc.) illustrent le potentiel des gestes, mais aussi leurs limites : suivi instable, précision variable, coûts computationnels élevés, rendant l’inférence en temps réel difficile sur des dispositifs embarqués.
-            </p>
-            <p>
-              Pour combler ce manque, nous introduisons <b>VIBE</b>, une plateforme web unifiée pour évaluer l’estimation de pose de la main dans des contextes interactifs réalistes. VIBE permet de télécharger un court clip vidéo, de sélectionner un ou plusieurs modèles, et de recevoir immédiatement des métriques d’efficacité : précision, latence d’inférence et consommation de ressources sur un ensemble de modèles pré‑entraînés [3, 5].
+              <b>VIBE</b> addresses this by providing a unified, zero-setup web platform. Users upload a short video, select one or more pretrained models, and immediately obtain key metrics and visualizations to guide model selection for interactive HCI scenarios.
             </p>
           </div>
 
-          <h2 class="title is-4" style="font-weight: 700;" id="system">2. Conception et Implémentation du Système</h2>
+          <h2 class="title is-4" style="font-weight: 700;" id="system">2. System Design and Implementation</h2>
           <div class="content has-text-justified">
             <p>
-              VIBE est conçu comme un environnement modulaire et interactif de benchmarking pour évaluer des modèles de reconnaissance gestuelle dans des conditions réalistes d’IHM [3]. Le système permet une évaluation rapide sans code, tout en garantissant une instrumentation fine des performances à chaque image.
+              VIBE is a modular, interactive benchmarking environment for gesture-oriented vision models. It supports no-code evaluation while recording per-frame performance signals.
             </p>
             <p>
-              L’interface présente un design minimaliste de type glisser‑déposer pour télécharger une vidéo (jusqu’à 30 secondes). Après le téléchargement, l’utilisateur choisit les modèles puis les métriques d’intérêt pour en obtenir une synthèse sur un tableau de bord. Chaque modèle s’exécute dans un conteneur Docker isolé (CPU/GPU), garantissant reproductibilité et stabilité, avec planification automatique selon les ressources disponibles.
+              The UI provides drag‑and‑drop video upload (≤ 30s). After upload, users pick models and metrics; results appear in a dashboard. Each model runs inside a versioned Docker container (CPU/GPU), ensuring stability and reproducibility with automatic resource-aware scheduling.
             </p>
             <p>
-              Pendant l’inférence, jusqu’à 20 métriques peuvent être étudiées : précision & qualité, performance & rapidité, consommation en ressources et robustesse. La latence est contextualisée par des profils pré‑calibrés (GPU mobile, processeurs intégrés, stations de travail) afin d’interpréter les résultats selon le scénario de déploiement.
+              Up to ~20 metrics are reported across four categories: accuracy/quality, performance/latency, resource usage, and robustness. Latency is contextualized via calibrated profiles (mobile GPU, embedded CPUs, workstations) to match deployment scenarios.
             </p>
           </div>
 
           <h2 class="title is-4" style="font-weight: 700;" id="architecture">Architecture</h2>
           <div class="content has-text-centered">
-            <img src="./resources/architecture.png" alt="Architecture de VIBE" style="width: 90%; margin: 0 auto; display: block;">
+            <img src="./resources/architecture.png" alt="VIBE Architecture" style="width: 90%; margin: 0 auto; display: block;">
           </div>
 
-          <h3 class="title is-5" style="font-weight: 700;">Tableau 1 – Comparaison entre exécution locale et via VIBE</h3>
+          <h3 class="title is-5" style="font-weight: 700;">Table 1 – Local execution vs VIBE (web app)</h3>
           <div class="table-container">
             <table class="table is-striped is-hoverable is-fullwidth">
               <thead>
                 <tr>
-                  <th>Critère</th>
-                  <th>Exécution Locale (Workstation)</th>
-                  <th>Exécution via VIBE (Webapp)</th>
+                  <th>Criterion</th>
+                  <th>Local execution (workstation)</th>
+                  <th>VIBE (web app)</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>Mise en Place et Accessibilité</td>
-                  <td>Installation complexe, configuration manuelle et compétences techniques</td>
-                  <td>Zéro configuration, accessible via navigateur web</td>
+                  <td>Setup & Accessibility</td>
+                  <td>Manual installs and configuration; technical expertise required</td>
+                  <td>Zero setup; runs in the browser</td>
                 </tr>
                 <tr>
-                  <td>Reproductibilité et Maintenance</td>
-                  <td>Sensible aux mises à jour locales et variations d’environnement</td>
-                  <td>Conteneur Docker versionné, environnement figé et reproductible</td>
+                  <td>Reproducibility & Maintenance</td>
+                  <td>Fragile to local updates and environment drift</td>
+                  <td>Versioned Docker containers; pinned, reproducible environment</td>
                 </tr>
                 <tr>
-                  <td>Performances et Ressources</td>
-                  <td>Contrôle direct des ressources locales (CPU/GPU) mais limite matérielle</td>
-                  <td>Allocation dynamique (CPU/GPU)</td>
+                  <td>Performance & Resources</td>
+                  <td>Direct control of local CPU/GPU but limited by hardware</td>
+                  <td>Dynamic CPU/GPU allocation</td>
                 </tr>
                 <tr>
-                  <td>Mise à Jour des Modèles</td>
-                  <td>Mise à jour manuelle et non automatisée</td>
-                  <td>Déploiement continu via pipelines CI/CD et versionnage</td>
+                  <td>Model Updates</td>
+                  <td>Manual, non-automated updates</td>
+                  <td>Continuous deployment via CI/CD with versioning</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
-          <h2 class="title is-4" style="font-weight: 700;" id="discussion">3. Discussion et Perspectives</h2>
+          <h2 class="title is-4" style="font-weight: 700;" id="discussion">3. Discussion and Future Work</h2>
           <div class="content has-text-justified">
             <p>
-              VIBE est un outil open‑source permettant de sélectionner les modèles les plus adaptés tout en réduisant drastiquement le temps nécessaire au prototypage. Il crée un pont entre des modèles de vision complexes, traditionnellement limités à une exécution hors ligne, et des systèmes interactifs déployés en contexte. La webapp permet en quelques minutes d’évaluer des modèles, de les comparer côte à côte, puis de générer un rapport pour l’aide à la décision.
+              VIBE streamlines model selection for interactive systems by combining rapid prototyping with rigorous benchmarking. In minutes, researchers can evaluate models, compare them side‑by‑side, and export results for decision support. Future work includes broader task coverage, privacy controls, and expanded robustness testing.
             </p>
           </div>
 
-          <h2 class="title is-4" style="font-weight: 700;" id="acknowledgements">Remerciements</h2>
+          <h2 class="title is-4" style="font-weight: 700;" id="acknowledgements">Acknowledgements</h2>
           <div class="content has-text-justified">
             <p>
-              Ce travail a été soutenu par le Gouvernement français dans le cadre du projet « Compétences et Métiers d’Avenir » intitulé « ReSource », au sein du programme France 2030, porté par la Caisse des Dépôts.
+              This work was supported by the French Government under the “Compétences et Métiers d’Avenir” project “ReSource” within the France 2030 program, led by the Caisse des Dépôts.
             </p>
           </div>
 
-          <h2 class="title is-4" style="font-weight: 700;" id="references">Références</h2>
+          <h2 class="title is-4" style="font-weight: 700;" id="references">References</h2>
           <div class="content">
             <ol>
               <li>Bazarevsky, V. et al. 2020. BlazePose: On-device Real-time Body Pose Tracking. CVPRW.</li>
@@ -279,7 +266,7 @@
       <pre><code>@inproceedings{elidrissidafali2025vibe,
   title={VIBE: An Open-Source Platform for Benchmarking Vision Models for Gesture-Based Interaction},
   author={El Idrissi Dafali, Rayan and Glushkova, Alina},
-  booktitle={IHM '25: Actes étendus de la 36e conférence Francophone sur l’Interaction Humain-Machine},
+  booktitle={IHM '25 Extended Abstracts of the 36th Francophone Conference on Human--Computer Interaction},
   year={2025},
   address={Toulouse, France}
 }</code></pre>
@@ -290,8 +277,8 @@
 
   <section class="section" id="Acknowledgements" style="padding-top: 0rem;">
     <div class="container is-max-desktop content">
-      <h2 class="title is-4" style="font-weight: 700;">Mentions Légales</h2>
-      <p>Cette page est un site de démonstration de recherche. Contenu © 2025 R. El Idrissi Dafali, A. Glushkova.</p>
+      <h2 class="title is-4" style="font-weight: 700;">Legal</h2>
+      <p>This page is a research demo site. Content © 2025 R. El Idrissi Dafali, A. Glushkova.</p>
     </div>
   </section>
 
